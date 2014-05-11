@@ -1,0 +1,7 @@
+CC          = mpicc
+
+jacobi: jacobi.c
+	$(CC) -c jacobi.c -o jacobi.o 
+	$(CC) -o jacobi jacobi.o -lblas 
+
+

@@ -33,8 +33,8 @@ int main(int argc, char **argv)
 	n=atoi(argv[1]);
 
 	/* Dimensionado de las matrices, utilizando funciones propias */
-	lda=n; ldb=n; ldc=n; 
-	A=dmatrix(n,n); B=dmatrix(n,n); C=dmatrix(n,n);
+	lda=n; ldb=n; 
+	A=dmatrix(n,n); B=dmatrix(n,n); 
 
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 

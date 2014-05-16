@@ -1,7 +1,8 @@
 /* Algoritmo de jacobi 
+ * @Autor: Iván Jiménez
  *
- *
- *
+ * Operación A*x= b
+ * Algoritmo secuencial de Jacobi
  */
 
 #include <stdio.h>
@@ -41,13 +42,13 @@ int main(int argc, char **argv)
 
 		for(i=0;i<n;i++)
 			for(j=0;j<n;j++)
-				M(A,i,j,lda) = rand() % 20;
+				M(A,i,j,lda) = 0.0;
 	
 	//matrizB:: Está será nuestra matriz transpuesta
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
-			M(B,i,j,ldb) = rand() % 20;
+			M(B,i,j,ldb) = 0.0;
 	
 				
 	
@@ -55,15 +56,13 @@ int main(int argc, char **argv)
 
 inicio = clock();
 
-for(i=0;i<n;i++)
-	for(j=0;j<n;j++)
-		M(C,i,j,ldc) = cblas_ddot(n,A+i,lda,B+j*ldb,1);
+printf("No hemos hecho nada\n");
 		 
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 printf("%d %d\n", n, result);
-printf("x^T*y: %2.5f segundos\n", duration );
+printf("A*x=b: %2.5f segundos\n", duration );
 
 
 }

@@ -1,7 +1,3 @@
-CC          = mpicc
-
-jacobi: jacobi.c
-	$(CC) -c jacobi.c -o jacobi.o 
-	$(CC) -o jacobi jacobi.o -lblas 
-
-
+jacobi_seq: jacobi_seq.c 
+	gcc -c jacobi_seq.c -o jacobi_seq.o 
+	gcc -o jacobi_seq jacobi_seq.o memoryfun.o

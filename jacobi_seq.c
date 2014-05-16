@@ -15,12 +15,16 @@ int main(int argc, char **argv)
 {
 	
 	int result;
-	int i,j,l;
-	int m,n,k,lda,ldb;
-	double *A,*B;
+	int i,j,k;
+	int m,n,k,lda,ldb,ldx;  // Dimensiones
+	double *A,*b,*x;  // A*x=b  Matriz y Vectores
 
 	clock_t inicio, fin;
 	double  duration;
+	double eps = 1.0e-4;
+	int maxit = 100;
+	
+	int cnt = 0;
 	
 	/* Comprobación número de argumentos correctos. Se pasaran m n k */
 	if (argc!=2)
@@ -33,8 +37,8 @@ int main(int argc, char **argv)
 	n=atoi(argv[1]);
 
 	/* Dimensionado de las matrices, utilizando funciones propias */
-	lda=n; ldb=n; 
-	A=dmatrix(n,n); B=dmatrix(n,n); 
+	lda=n; ldb=n; ldx=n;
+	A=dmatrix(n,n); b=dvector(n); x=dvector(n);
 
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 

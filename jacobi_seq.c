@@ -69,6 +69,7 @@ int main(int argc, char **argv)
 
 inicio = clock();
 
+printf("Estoy antes\n");
 for (iter=0; iter<100;i++){
 	
 	for (i=1; i<n-1; i++){
@@ -83,7 +84,7 @@ for (iter=0; iter<100;i++){
 		}
 	}
 }
-
+printf("Estoy antes de imprimir\n");
 // Imprime resultado
    for (j=0; j<n; j++){
        for (i=0; i<n; j++){

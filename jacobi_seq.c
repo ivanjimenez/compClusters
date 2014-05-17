@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 {
 	
 	int result;
-	int i,j,k;
+	int i,j,k,n;
  
 	double *V,*b,*temp;  
 

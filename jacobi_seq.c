@@ -65,13 +65,13 @@ inicio = clock();
 
 for (int iter=0; iter<100;i++){
 	
-	for (int i=1; i<n-1; i++){
+	for (i=1; i<n-1; i++){
 		for (int j=1; j<n-1; j++){
 			M(temp,i,j,n) = 0.25 * (M(V,i+1,j,n) + M(V,i-1,j,n) + M(V,i,j+1,n) + M(V,i,j-1,n) - M(b,i,j,n));
 		}
 		
 	}
-	for (int i=1; i<n-1; i++){
+	for (i=1; i<n-1; i++){
 		for (int j=1; j<n-1; j++){
 			M(V,i,j,n) = M(temp,i,j,n);
 		}

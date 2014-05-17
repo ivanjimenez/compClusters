@@ -56,9 +56,7 @@ int main(int argc, char **argv)
 			M(b,i,j,n) = 0.0;
 
 	
-	
-	//M(b,n/2, n/2,n) = -1.0;
-	
+
 	
 // Computa la operación: cblas.dot <- X^T*Y
 

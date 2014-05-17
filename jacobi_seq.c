@@ -71,7 +71,7 @@ inicio = clock();
 
 
 
-
+printf("Estoy en el clock\n ");
 // Imprime resultado
    for (j=0; j<n; j++){
        for (i=0; i<n; j++){

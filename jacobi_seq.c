@@ -78,11 +78,17 @@ for (iter=0; iter<100;i++){
 	}
 }
 
-		 
+// Print out the result
+   for (j=0; j<n; j++){
+       for (i=0; i<n; j++){
+           printf("V[%d,%d]=%d\n", i,j,M(V,i,j,n);
+       }
+      
+   }
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
-printf("%d %d\n", n, result);
+
 printf("A*x=b: %2.5f segundos\n", duration );
 
 

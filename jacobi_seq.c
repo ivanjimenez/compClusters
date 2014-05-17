@@ -16,13 +16,12 @@ int main(int argc, char **argv)
 	
 	int result;
 	int i,j,k;
-	int m,n,k,lda,ldb,ldx;  // Dimensiones
-	double *A,*b,*x;  // A*x=b  Matriz y Vectores
+ 
+	double *V,*b,*temp;  
 
 	clock_t inicio, fin;
 	double  duration;
-	double eps = 1.0e-4;
-	int maxit = 100;
+	int iter;
 	
 	int cnt = 0;
 	
@@ -37,30 +36,48 @@ int main(int argc, char **argv)
 	n=atoi(argv[1]);
 
 	/* Dimensionado de las matrices, utilizando funciones propias */
-	lda=n; ldb=n; ldx=n;
-	A=dmatrix(n,n); b=dvector(n); x=dvector(n);
+	
+	
+	V=dmatrix(n,n); //Esta es la matriz en la que resolveremos el sistem
+	b=dmatrix(n,n); 
+	temp=dmatrix(n,n);
 
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
-	//matrixA 
+	//matrixV
 
 		for(i=0;i<n;i++)
 			for(j=0;j<n;j++)
-				M(A,i,j,lda) = 0.0;
+				M(V,i,j,n) = 0.0;
 	
-	//matrizB:: Está será nuestra matriz transpuesta
+	//matrizb
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
-			M(B,i,j,ldb) = 0.0;
+			M(b,i,j,n) = 0.0;
 	
-				
+	b(n/2, n/2) = -1.0;
+	
 	
 // Computa la operación: cblas.dot <- X^T*Y
 
 inicio = clock();
 
-printf("No hemos hecho nada\n");
+for (int iter=0; iter<100;i++){
+	
+	for (int i=1; i<n-1; i++){
+		for (int j=1; j<n-1; j++){
+			temp(i,j) = 0.25 * (V(i+1,j) + V(i-1,j) + V(i,j+1) + V(i,j-1) - b(i,j));
+		}
+		
+	}
+	for (int i=1; i<n-1; i++){
+		for (int j=1; j<n-1; j++){
+			V(i,j) = temp(i,j);
+		}
+	}
+}
+
 		 
                   
 fin = clock();

@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	int result;
 	int i,j,k,n;
  
-	double *V,*b,*temp;  
+	double *A,*B;  
 
 	clock_t inicio, fin;
 	double  duration;
@@ -37,34 +37,24 @@ int main(int argc, char **argv)
 	/* Dimensionado de las matrices, utilizando funciones propias */
 	
 	
-	V=dmatrix(n,n); //Esta es la matriz en la que resolveremos el sistem
-	b=dmatrix(n,n); 
-	temp=dmatrix(n,n);
+	A=dmatrix(n,n); //Esta es la matriz en la que resolveremos el sistema
+	B=dmatrix(n,n); 
+	
 
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
-	//matrixV
+	//matrixA
 
 		for(i=0;i<n;i++)
 			for(j=0;j<n;j++)
-				M(V,i,j,n) = 0.0;
+				M(A,i,j,n) = 0.0;
 	
-	//matrizb
+	//matrizB
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
-			M(b,i,j,n) = 0.0;
+			M(B,i,j,n) = 0.0;
 	
-	for(i=0;i<n;i++)
-		for(j=0;j<n;j++)
-			M(temp,i,j,n) = 0.0;
-	
-	
-	
-	//M(b,n/2, n/2,n) = -1.0;
-	
-	
-// Computa la operación: cblas.dot <- X^T*Y
 
 inicio = clock();
 
@@ -73,13 +63,13 @@ for (iter=0; iter<100;iter++){
 	
 	for (i=1; i<n-1; i++){
 		for (j=1; j<n-1; j++){
-			M(temp,i,j,n) = 0.25 * (M(V,i-1,j,n) + M(V,i+1,j,n) + M(V,i,j+1,n) + M(V,i,j-1,n));
+			M(B,i,j,n) = 0.25 * (M(A,i-1,j,n) + M(A,i+1,j,n) + M(A,i,j+1,n) + M(A,i,j-1,n));
 		}
 	}
 	// Utilizamos otra vez la matriz V como resultado
 	for (i=1; i<n-1; i++){
 		for (j=1; j<n-1; j++){
-			M(V,i,j,n) = M(temp,i,j,n);
+			M(A,i,j,n) = M(B,i,j,n);
 		}
 	}
 }
@@ -87,7 +77,7 @@ printf("Estoy antes de imprimir\n");
 // Imprime resultado
    for (j=0; j<n; j++){
        for (i=0; i<n; i++){
-           printf("V[%d,%d]=%d\n", i,j,M(V,i,j,n));
+           printf("A[%d,%d]=%d\n", i,j,M(A,i,j,n));
        }
       
    }

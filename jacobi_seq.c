@@ -23,7 +23,6 @@ int main(int argc, char **argv)
 	double  duration;
 	int iter;
 	
-	int cnt = 0;
 	
 	/* Comprobación número de argumentos correctos. Se pasaran m n k */
 	if (argc!=2)
@@ -55,11 +54,7 @@ int main(int argc, char **argv)
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			M(b,i,j,n) = 0.0;
-	
-	for(i=0;i<n;i++)
-		for(j=0;j<n;j++)
-			M(temp,i,j,n) = 0.0;
-	
+
 	
 	
 	//M(b,n/2, n/2,n) = -1.0;
@@ -72,13 +67,8 @@ inicio = clock();
 
 
 printf("Estoy en el clock\n ");
-// Imprime resultado
-   for (j=0; j<n; j++){
-       for (i=0; i<n; j++){
-           printf("V[%d,%d]=%d\n", i,j,M(V,i,j,n));
-       }
-      
-   }
+
+
                   
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;

@@ -87,7 +87,7 @@ for (iter=0; iter<100;i++){
 // Imprime resultado
    for (j=0; j<n; j++){
        for (i=0; i<n; j++){
-           printf("V[%d,%d]=%d\n", i,j,M(V,i,j,n);
+           printf("V[%d,%d]=%d\n", i,j,M(V,i,j,n));
        }
       
    }

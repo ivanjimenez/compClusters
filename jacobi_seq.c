@@ -47,13 +47,13 @@ int main(int argc, char **argv)
 
 		for(i=0;i<n;i++)
 			for(j=0;j<n;j++)
-				M(V,i,j,n) = 0.0;
+				M(V,i,j,n) = 0;
 	
 	//matrizb
 
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
-			M(b,i,j,n) = 0.0;
+			M(b,i,j,n) = 0;
 
 	
 

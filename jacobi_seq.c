@@ -56,6 +56,12 @@ int main(int argc, char **argv)
 		for(j=0;j<n;j++)
 			M(b,i,j,n) = 0.0;
 	
+	for(i=0;i<n;i++)
+		for(j=0;j<n;j++)
+			M(temp,i,j,n) = 0.0;
+	
+	
+	
 	M(b,n/2, n/2,n) = -1.0;
 	
 	

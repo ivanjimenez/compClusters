@@ -23,7 +23,6 @@ int main(int argc, char **argv)
 	double  duration;
 	int iter;
 	
-	int cnt = 0;
 	
 	/* Comprobación número de argumentos correctos. Se pasaran m n k */
 	if (argc!=2)
@@ -70,14 +69,14 @@ int main(int argc, char **argv)
 inicio = clock();
 
 printf("Estoy antes\n");
-for (iter=0; iter<100;i++){
+for (iter=0; iter<100;iter++){
 	
 	for (i=1; i<n-1; i++){
 		for (j=1; j<n-1; j++){
 			M(temp,i,j,n) = 0.25 * (M(V,i+1,j,n) + M(V,i-1,j,n) + M(V,i,j+1,n) + M(V,i,j-1,n) - M(b,i,j,n));
 		}
-		
 	}
+	
 	for (i=1; i<n-1; i++){
 		for (j=1; j<n-1; j++){
 			M(V,i,j,n) = M(temp,i,j,n);
@@ -87,7 +86,7 @@ for (iter=0; iter<100;i++){
 printf("Estoy antes de imprimir\n");
 // Imprime resultado
    for (j=0; j<n; j++){
-       for (i=0; i<n; j++){
+       for (i=0; i<n; i++){
            printf("V[%d,%d]=%d\n", i,j,M(V,i,j,n));
        }
       

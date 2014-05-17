@@ -44,18 +44,18 @@ int main(int argc, char **argv)
 	/* Relleno de las matrices con valores aleatorios. Uso de macro propia */
 
 	//matrixV
-
+	/*
 		for(i=0;i<n;i++)
 			for(j=0;j<n;j++)
 				M(V,i,j,n) = 0;
-	
+	*/
 	//matrizb
-
+		/*
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			M(b,i,j,n) = 0;
-
-	
+		*/
+		
 
 	
 // Computa la operación: cblas.dot <- X^T*Y

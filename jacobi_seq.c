@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 		for(j=0;j<n;j++)
 			M(b,i,j,n) = 0.0;
 	
-	b(n/2, n/2) = -1.0;
+	M(b,n/2, n/2,n) = -1.0;
 	
 	
 // Computa la operación: cblas.dot <- X^T*Y
@@ -67,13 +67,13 @@ for (int iter=0; iter<100;i++){
 	
 	for (int i=1; i<n-1; i++){
 		for (int j=1; j<n-1; j++){
-			temp(i,j) = 0.25 * (V(i+1,j) + V(i-1,j) + V(i,j+1) + V(i,j-1) - b(i,j));
+			M(temp,i,j,n) = 0.25 * (M(V,i+1,j,n) + M(V,i-1,j,n) + M(V,i,j+1,n) + M(V,i,j-1,n) - M(b,i,j,n));
 		}
 		
 	}
 	for (int i=1; i<n-1; i++){
 		for (int j=1; j<n-1; j++){
-			V(i,j) = temp(i,j);
+			M(V,i,j,n) = M(temp,i,j,n);
 		}
 	}
 }

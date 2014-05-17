@@ -61,19 +61,19 @@ int main(int argc, char **argv)
 	
 	
 	
-	M(b,n/2, n/2,n) = -1.0;
+	//M(b,n/2, n/2,n) = -1.0;
 	
 	
 // Computa la operación: cblas.dot <- X^T*Y
 
 inicio = clock();
 
-printf("Estoy antes\n");
+
 for (iter=0; iter<100;iter++){
 	
 	for (i=1; i<n-1; i++){
 		for (j=1; j<n-1; j++){
-			M(temp,i,j,n) = 0.25 * (M(V,i+1,j,n) + M(V,i-1,j,n) + M(V,i,j+1,n) + M(V,i,j-1,n) - M(b,i,j,n));
+			M(temp,i,j,n) = 0.25 * (M(V,i-1,j,n) + M(V,i+1,j,n) + M(V,i,j+1,n) + M(V,i,j-1,n));
 		}
 	}
 	// Utilizamos otra vez la matriz V como resultado

@@ -85,7 +85,7 @@ printf("Estoy antes de imprimir\n");
 fin = clock();
 duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
 
-printf("A*x=b: %2.5f segundos\n", duration );
+printf("Jacobi secuencial: %2.5f segundos\n", duration );
 
 
 }

@@ -21,6 +21,7 @@ int main(int argc, char **argv)
 
 	clock_t inicio, fin;
 	double  duration;
+	double diff, maxdiff;
 	int iter;
 	
 	
@@ -58,12 +59,19 @@ int main(int argc, char **argv)
 
 inicio = clock();
 
-
-for (iter=0; iter<100;iter++){
+maxdiff = 0.0;
+diff = 0.0;
+iter = 0;
+do {
 	
 	for (i=1; i<n-1; i++){
 		for (j=1; j<n-1; j++){
 			M(B,i,j,n) = 0.25 * (M(A,i-1,j,n) + M(A,i+1,j,n) + M(A,i,j+1,n) + M(A,i,j-1,n));
+			diff = abs(M(B,i,j,n) - M(A,i,j,n));
+			
+			if (maxdiff < diff)
+				maxdiff = diff;
+			
 		}
 	}
 	// Utilizamos otra vez la matriz V como resultado
@@ -72,7 +80,8 @@ for (iter=0; iter<100;iter++){
 			M(A,i,j,n) = M(B,i,j,n);
 		}
 	}
-}
+	iter++;
+) while (iter < 100 && maxdiff < 1.0e-2);
 printf("Estoy antes de imprimir\n");
 // Imprime resultado
    for (j=0; j<n; j++){

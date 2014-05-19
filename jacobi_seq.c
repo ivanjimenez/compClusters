@@ -80,7 +80,8 @@ do {
 			M(A,i,j,n) = M(B,i,j,n);
 		}
 	}
-	iter++;
+	iter++;   
+	
 ) while (iter < 100 && maxdiff < 1.0e-2);
 printf("Estoy antes de imprimir\n");
 // Imprime resultado

@@ -82,7 +82,7 @@ do {
 	}
 	iter++;   
 	
-) while (iter < 100 && maxdiff < 1.0e-2);
+} while (iter < 100 && maxdiff < 1.0e-2);
 printf("Estoy antes de imprimir\n");
 // Imprime resultado
    for (j=0; j<n; j++){

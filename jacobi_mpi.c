@@ -13,20 +13,8 @@ char **argv;
     int        i_first, i_last;
     MPI_Status status;
     double     diffnorm, gdiffnorm;
-  
-	
-	/* Comprobación número de argumentos correctos. Se pasaran m n k */
-	if (argc!=2)
-	   {
-	   printf("Error de Sintaxis. Uso: jacobi_mpi n \n");
-	   exit(1);
-	   }
-
-	/* Lectura de parametros de entrada */
-	n=atoi(argv[1]);
-	
-    double     xlocal[(n/4)+2][n];
-    double     xnew[(n/3)+2][n];
+    double     xlocal[(12/4)+2][12];
+    double     xnew[(12/3)+2][12];
 
     MPI_Init( &argc, &argv );
 

@@ -3,7 +3,7 @@
 #include "mpi.h"
 
 /* This example handles a 12 x 12 mesh, on 4 processors only. */
-#define maxn 12
+//#define maxn 12
 
 int main( argc, argv )
 int argc;
@@ -13,10 +13,21 @@ char **argv;
     int        i_first, i_last;
     MPI_Status status;
     double     diffnorm, gdiffnorm;
-    double     xlocal[(12/4)+2][12];
-    double     xnew[(12/3)+2][12];
 
     MPI_Init( &argc, &argv );
+	
+	/* Comprobación número de argumentos correctos. Se pasara maxn */
+	if (argc!=2)
+	   {
+	   printf("Error de Sintaxis. Uso: jacobi_mpi maxn \n");
+	   exit(1);
+	   }
+
+	/* Lectura de parametros de entrada */
+	maxn=atoi(argv[1]);
+	
+    double     xlocal[(maxn/4)+2][maxn];
+    double     xnew[(maxn/3)+2][maxn];
 
     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
     MPI_Comm_size( MPI_COMM_WORLD, &size );

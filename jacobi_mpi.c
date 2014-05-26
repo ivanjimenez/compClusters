@@ -11,6 +11,7 @@ char **argv;
 {
     int        rank, value, size, errcnt, toterr, i, j, itcnt;
     int        i_first, i_last;
+	int 	   maxn;
     MPI_Status status;
     double     diffnorm, gdiffnorm;
 

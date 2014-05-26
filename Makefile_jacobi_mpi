@@ -1,9 +1,6 @@
-jacobi_seq: jacobi_seq.c 
-	gcc -c jacobi_seq.c -o jacobi_seq.o 
-	gcc -o jacobi_seq jacobi_seq.o memoryfun.o
 jacobi_mpi: jacobi_mpi.c
 	gcc -c jacobi_mpi.c -o jacobi_mpi.o 
 	gcc -o jacobi_mpi jacobi_mpi.o memoryfun.o
 clean: 
 	rm *.o
-	rm jacobi_seq
+	rm jacobi_mpi

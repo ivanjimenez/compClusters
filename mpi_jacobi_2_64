@@ -1,7 +1,2 @@
-#!/bin/bash
-#PBS -N mpi_jacobi_2_64
-#PBS -k eo
-#PBS -l nodes=1:ppn=2
-#PBS -l walltime=00:30:00
-cd $PBS_O_WORKDIR
-mpiexec ./jacobi_mpi 64
+rank 1 in job 15  avaricia_37102   caused collective abort of all ranks
+  exit status of rank 1: return code 1 

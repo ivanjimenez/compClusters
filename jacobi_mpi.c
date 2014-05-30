@@ -36,7 +36,7 @@ char **argv;
     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
     MPI_Comm_size( MPI_COMM_WORLD, &size );
 
-    if (size != 4) MPI_Abort( MPI_COMM_WORLD, 1 );
+   // if (size != 4) MPI_Abort( MPI_COMM_WORLD, 1 );
 
     /* xlocal[][0] is lower ghostpoints, xlocal[][maxn+2] is upper */
 

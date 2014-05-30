@@ -1,0 +1,6 @@
+qsub mpi_jacobi_1_64
+qsub mpi_jacobi_2_64
+qsub mpi_jacobi_4_64
+qsub mpi_jacobi_6_64
+qsub mpi_jacobi_8_64
+qsub mpi_jacobi_10_64

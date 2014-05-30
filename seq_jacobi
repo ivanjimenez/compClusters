@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -N mpi_jacobi
+#PBS -N seq_jacobi
 #PBS -k eo
-#PBS -l nodes=2:ppn=4
+#PBS -l nodes=2:ppn=8
 #PBS -l walltime=00:30:00
 cd $PBS_O_WORKDIR
-mpiexec ./jacobi_mpi 10
+mpiexec ./jacobi_seq 10

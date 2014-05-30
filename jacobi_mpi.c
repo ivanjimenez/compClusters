@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "mpi.h"
+#include <time.h>
 
 /* This example handles a 12 x 12 mesh, on 4 processors only. */
 //#define maxn 12
@@ -11,7 +12,9 @@ char **argv;
 {
     int        rank, value, size, errcnt, toterr, i, j, itcnt;
     int        i_first, i_last;
+	clock_t inicio, fin;
 	int 	   maxn;
+	double duration;
     MPI_Status status;
     double     diffnorm, gdiffnorm;
 
@@ -51,6 +54,8 @@ char **argv;
 	xlocal[i_first-1][j] = -1;
 	xlocal[i_last+1][j] = -1;
     }
+	
+inicio = clock();
 
     itcnt = 0;
     do {
@@ -91,5 +96,9 @@ char **argv;
     } while (gdiffnorm > 1.0e-2 && itcnt < 100);
 
     MPI_Finalize( );
+	fin = clock();
+	duration = (double)(fin - inicio) / CLOCKS_PER_SEC;
+
+	printf("Jacobi paralelo mpi: %2.5f segundos\n", duration );
     return 0;
 }

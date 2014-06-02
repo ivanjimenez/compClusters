@@ -14,6 +14,7 @@ char **argv;
     int        i_first, i_last;
 	clock_t inicio, fin;
 	int 	   maxn;
+	int		   np;
 	double duration;
     MPI_Status status;
     double     diffnorm, gdiffnorm;
@@ -21,7 +22,7 @@ char **argv;
     MPI_Init( &argc, &argv );
 	
 	/* Comprobación número de argumentos correctos. Se pasara maxn */
-	if (argc!=2)
+	if (argc!=3)
 	   {
 	   printf("Error de Sintaxis. Uso: jacobi_mpi maxn \n");
 	   exit(1);
@@ -29,9 +30,12 @@ char **argv;
 
 	/* Lectura de parametros de entrada */
 	maxn=atoi(argv[1]);
+	np = atoi(argv[2]);
 	
-    double     xlocal[(maxn/4)+2][maxn];
-    double     xnew[(maxn/3)+2][maxn];
+    //double     xlocal[(maxn/4)+2][maxn];
+    //double     xnew[(maxn/3)+2][maxn];
+	double     xlocal[(maxn/np)+2][maxn];
+	double     xnew[(maxn/np-1)+2][maxn];
 
     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
     MPI_Comm_size( MPI_COMM_WORLD, &size );
